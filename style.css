@@ -1,0 +1,45 @@
+:root {
+            --bg-body: #0a0c10;
+            --bg-card: #161b22;
+            --blue-line: #388bfd;
+            --machine-red: #f85149;
+            --zone-green: #3fb950;
+            --zone-cyan: #58a6ff;
+            --zone-yellow: #d29922;
+            --text-main: #c9d1d9;
+        }
+
+        body { font-family: 'Inter', sans-serif; margin: 0; background: var(--bg-body); color: var(--text-main); display: flex; height: 100vh; overflow: hidden; }
+
+        .map-container { flex: 1; display: flex; align-items: center; justify-content: center; padding: 10px; width: 100vw; }
+        
+        svg { width: 100%; height: auto; max-height: 95vh; background: var(--bg-card); border-radius: 4px; box-shadow: 0 0 40px rgba(0,0,0,0.6); }
+
+        /* Linie obrysowe - Dokładnie jak na Twoim planie */
+        .blue-stroke { stroke: var(--blue-line); stroke-width: 1.5; fill: none; }
+        
+        /* Obszary interaktywne */
+        .zone { transition: all 0.2s; cursor: pointer; fill-opacity: 0.1; stroke-width: 1.5; }
+        .zone:hover { fill-opacity: 0.4; filter: brightness(1.2) drop-shadow(0 0 5px currentColor); }
+
+        .red { color: var(--machine-red); fill: var(--machine-red); stroke: var(--machine-red); }
+        .green { color: var(--zone-green); fill: var(--zone-green); stroke: var(--zone-green); }
+        .cyan { color: var(--zone-cyan); fill: var(--zone-cyan); stroke: var(--zone-cyan); }
+        .yellow { color: var(--zone-yellow); fill: var(--zone-yellow); stroke: var(--zone-yellow); }
+
+        /* Napisy na maszynach */
+        .lbl-red { fill: var(--machine-red); font-size: 14px; font-weight: 600; pointer-events: none; text-anchor: middle; font-family: monospace; }
+        .lbl-cyan { fill: var(--zone-cyan); font-size: 12px; font-weight: 600; pointer-events: none; text-anchor: middle; font-family: monospace; }
+
+        /* Sidebar */
+        .sidebar {
+            width: 550px; background: #0d1117; border-left: 1px solid #30363d;
+            padding: 30px; transform: translateX(100%); transition: transform 0.3s ease;
+            position: fixed; right: 0; top: 0; height: 100%; z-index: 100;
+        }
+        .sidebar.active { transform: translateX(0); }
+        .close-btn { background: none; border: none; color: #8b949e; font-size: 24px; cursor: pointer; float: right; }
+        h2 { color: #fff; margin-top: 0; font-size: 20px; }
+        .data-box { margin-top: 25px; border-top: 1px solid #30363d; padding-top: 20px; }
+        .label { color: #8b949e; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+        .val { display: block; margin-bottom: 15px; font-size: 16px; color: #f0f6fc; }
